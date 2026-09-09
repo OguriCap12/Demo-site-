@@ -26,7 +26,7 @@ export function SignatureDishesSection() {
           </Reveal>
           <Reveal delay={120} className="max-w-sm">
             <p className="text-sm leading-7 text-ivory/60">
-              Demo tasting highlights with fictional pricing for presentation purposes only.
+              A concise tasting selection, built to show the rhythm and restraint of the house.
             </p>
           </Reveal>
         </div>
@@ -34,14 +34,14 @@ export function SignatureDishesSection() {
         <div className="mt-14 grid w-full min-w-0 grid-cols-1 auto-rows-[minmax(22rem,auto)] gap-4 sm:auto-rows-[26rem] md:grid-cols-12 md:auto-rows-[18rem] lg:gap-7">
           {signatureDishes.map((dish, index) => (
             <Reveal key={dish.name} className={`w-full min-w-0 ${layoutClasses[index]}`} delay={index * 80}>
-              <article className="group relative h-full min-h-[22rem] w-full min-w-0 overflow-hidden rounded-[2rem] border border-ivory/10 bg-[#211d19] shadow-[0_18px_60px_rgba(0,0,0,0.16)]">
+              <article className="group relative h-full min-h-[22rem] w-full min-w-0 overflow-hidden rounded-[1.35rem] border border-ivory/10 bg-[#211d19] shadow-[0_18px_60px_rgba(0,0,0,0.16)] sm:rounded-[1.75rem]">
                 <img
                   src={dish.image}
                   alt={dish.alt}
-                  className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.04]"
+                  className="h-full w-full object-cover transition duration-1000 ease-out group-hover:scale-[1.055]"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent transition duration-500 group-hover:from-black/90" />
                 <div className="absolute left-4 top-4 flex items-center gap-2 sm:left-5 sm:top-5">
                   <span className="rounded-full border border-ivory/18 bg-charcoal/45 px-3 py-1.5 text-[0.58rem] font-semibold uppercase tracking-editorial text-ivory/78 backdrop-blur-sm">
                     0{index + 1} / Signature
@@ -50,12 +50,12 @@ export function SignatureDishesSection() {
                 <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
                   <div className="flex items-end justify-between gap-4">
                     <div className="min-w-0">
-                      <h3 className="font-serif text-[1.9rem] leading-[0.94] text-ivory sm:text-[2.2rem]">{dish.name}</h3>
-                      <p className="mt-3 max-w-md text-sm leading-6 text-ivory/74">{dish.description}</p>
+                      <h3 className="font-serif text-[1.85rem] leading-[0.94] tracking-[-0.015em] text-ivory transition-transform duration-500 group-hover:-translate-y-0.5 sm:text-[2.2rem]">{dish.name}</h3>
+                      <p className="mt-3 max-w-md text-sm leading-6 text-ivory/70">{dish.description}</p>
                     </div>
                     <p className="shrink-0 text-sm font-semibold uppercase tracking-editorial text-ember">{dish.price}</p>
                   </div>
-                  <div className="mt-4 flex items-center gap-2 text-[0.62rem] font-semibold uppercase tracking-editorial text-ivory/50 transition group-hover:text-ivory/75">
+                  <div className="mt-4 flex items-center gap-2 text-[0.62rem] font-semibold uppercase tracking-editorial text-ivory/50 transition-all duration-300 group-hover:translate-x-1 group-hover:text-ivory/85">
                     <span>View details</span>
                     <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
                   </div>
