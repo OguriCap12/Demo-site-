@@ -55,7 +55,7 @@ export function NavBar({ items, onReserveClick }: NavBarProps) {
                 <a
                   key={item.href}
                   href={item.href}
-                  className="text-xs font-semibold uppercase tracking-editorial text-ivory/80 transition hover:text-ivory focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember"
+                  className="relative text-xs font-semibold uppercase tracking-editorial text-ivory/76 transition hover:text-ivory after:absolute after:-bottom-2 after:left-0 after:h-px after:w-0 after:bg-ember after:transition-all hover:after:w-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember"
                 >
                   {item.label}
                 </a>
@@ -73,7 +73,7 @@ export function NavBar({ items, onReserveClick }: NavBarProps) {
               aria-expanded={isMenuOpen}
               aria-controls="mobile-menu"
               aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-ivory/15 bg-charcoal/55 text-ivory transition hover:border-ivory/30 lg:hidden"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-ivory/15 bg-charcoal/55 text-ivory shadow-[0_8px_30px_rgba(0,0,0,0.18)] transition hover:border-ivory/30 hover:bg-charcoal/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember lg:hidden"
               onClick={() => setIsMenuOpen((current) => !current)}
             >
               {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}

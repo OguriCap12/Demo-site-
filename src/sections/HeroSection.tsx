@@ -20,8 +20,8 @@ export function HeroSection({ onReserveClick }: HeroSectionProps) {
       <div className="absolute inset-0 bg-gradient-to-r from-[#16130f]/72 via-[#16130f]/28 to-[#16130f]/38" />
       <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/15 to-transparent" />
 
-      <Container className="relative flex min-h-screen items-end pb-16 pt-28 sm:pb-20 lg:pb-24">
-        <div className="max-w-3xl">
+      <Container className="relative flex min-h-screen items-end pb-20 pt-32 sm:pb-24 lg:pb-28">
+        <div className="max-w-3xl border-l border-ember/55 pl-5 sm:pl-7">
           <p className="motion-safe:animate-fade-up text-xs font-semibold uppercase tracking-editorial text-ember">
             Defence Colony, New Delhi
           </p>
