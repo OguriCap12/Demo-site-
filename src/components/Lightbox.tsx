@@ -1,5 +1,5 @@
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 
 import { GalleryItem } from '../data/siteContent';
@@ -17,6 +17,7 @@ type LightboxProps = {
 export function Lightbox({ items, activeIndex, onClose, onNext, onPrev }: LightboxProps) {
   const panelRef = useRef<HTMLDivElement>(null);
   const isOpen = activeIndex !== null;
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
 
   useBodyScrollLock(isOpen);
   useFocusTrap(isOpen, panelRef);
@@ -49,7 +50,7 @@ export function Lightbox({ items, activeIndex, onClose, onNext, onPrev }: Lightb
   const activeItem = items[activeIndex];
 
   return createPortal(
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 px-4 py-6 backdrop-blur-sm">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 px-4 py-6 backdrop-blur-sm motion-safe:animate-modal-in">
       <div className="absolute inset-0" onClick={onClose} />
       <div
         ref={panelRef}
@@ -74,11 +75,11 @@ export function Lightbox({ items, activeIndex, onClose, onNext, onPrev }: Lightb
           </button>
         </div>
 
-        <div className="relative overflow-hidden rounded-[1.5rem] bg-[#181511]">
+        <div\n          className="relative overflow-hidden rounded-[1.5rem] bg-[#181511]"\n          onTouchStart={(event) => setTouchStartX(event.touches[0]?.clientX ?? null)}\n          onTouchEnd={(event) => {\n            if (touchStartX === null) return;\n            const delta = (event.changedTouches[0]?.clientX ?? touchStartX) - touchStartX;\n            if (Math.abs(delta) > 50) {\n              delta < 0 ? onNext() : onPrev();\n            }\n            setTouchStartX(null);\n          }}\n        >
           <img
             src={activeItem.image}
             alt={activeItem.alt}
-            className="max-h-[72vh] w-full object-cover"
+            className="max-h-[72vh] w-full object-cover transition-opacity duration-300"
             loading="eager"
           />
           <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/55 to-transparent p-5">
