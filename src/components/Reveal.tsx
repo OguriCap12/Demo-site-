@@ -14,7 +14,7 @@ export function Reveal({ children, className = '', delay = 0 }: RevealProps) {
   return (
     <div
       ref={ref}
-      className={`reveal-element ${isVisible ? 'is-visible' : ''} ${className}`}
+      className={`reveal-element min-w-0 max-w-full ${isVisible ? 'is-visible' : ''} ${className}`}
       style={prefersReducedMotion ? undefined : { transitionDelay: `${delay}ms` }}
     >
       {children}
