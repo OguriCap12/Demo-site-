@@ -31,10 +31,10 @@ export function SignatureDishesSection() {
           </Reveal>
         </div>
 
-        <div className="mt-14 grid auto-rows-[20rem] gap-4 sm:auto-rows-[26rem] md:grid-cols-12 md:auto-rows-[18rem] lg:gap-7">
+        <div className="mt-14 grid w-full min-w-0 grid-cols-1 auto-rows-[minmax(22rem,auto)] gap-4 sm:auto-rows-[26rem] md:grid-cols-12 md:auto-rows-[18rem] lg:gap-7">
           {signatureDishes.map((dish, index) => (
-            <Reveal key={dish.name} className={layoutClasses[index]} delay={index * 80}>
-              <article className="group relative h-full min-h-0 overflow-hidden rounded-[2rem] border border-ivory/10 bg-[#211d19] shadow-[0_18px_60px_rgba(0,0,0,0.16)]">
+            <Reveal key={dish.name} className={`w-full min-w-0 ${layoutClasses[index]}`} delay={index * 80}>
+              <article className="group relative h-full min-h-[22rem] w-full min-w-0 overflow-hidden rounded-[2rem] border border-ivory/10 bg-[#211d19] shadow-[0_18px_60px_rgba(0,0,0,0.16)]">
                 <img
                   src={dish.image}
                   alt={dish.alt}
