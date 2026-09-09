@@ -11,29 +11,29 @@ const storyPoints = [
 
 export function StorySection() {
   return (
-    <section id="story" className="scroll-mt-24 bg-ivory py-20 text-charcoal sm:py-24 lg:py-28">
+    <section id="story" className="scroll-mt-24 overflow-hidden bg-ivory py-20 text-charcoal sm:py-24 lg:py-32">
       <Container>
-        <div className="grid gap-14 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
+        <div className="grid gap-16 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-20">
           <div>
             <Reveal>
               <p className="text-xs font-semibold uppercase tracking-editorial text-ember">Restaurant Story</p>
             </Reveal>
             <Reveal delay={100}>
-              <h2 className="mt-4 font-serif text-5xl leading-[0.92] sm:text-6xl lg:text-[5.4rem]">
+              <h2 className="mt-4 max-w-3xl font-serif text-[3.35rem] leading-[0.86] tracking-[-0.035em] sm:text-6xl lg:text-[5.6rem]">
                 COOKED OVER FIRE. <br />
                 INSPIRED BY THE SEA.
               </h2>
             </Reveal>
             <Reveal delay={160}>
-              <p className="mt-8 max-w-xl text-base leading-8 text-charcoal/76 sm:text-lg">
+              <p className="mt-8 max-w-lg text-base leading-8 text-charcoal/76 sm:text-lg">
                 The fictional world of Ember &amp; Olive is built around a simple tension: smoke and salt, structure and ease, the elegance of Mediterranean technique alongside the generosity of Indian ingredients.
               </p>
             </Reveal>
-            <div className="mt-10 space-y-4">
+            <div className="mt-12 space-y-0 border-t border-charcoal/10">
               {storyPoints.map((point, index) => (
                 <Reveal key={point} delay={180 + index * 60}>
-                  <div className="flex items-start gap-4 border-b border-charcoal/10 pb-4">
-                    <span className="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-olive" />
+                  <div className="flex items-start gap-4 border-b border-charcoal/10 py-4">
+                    <span className="mt-2 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-ember" />
                     <p className="text-sm leading-7 text-charcoal/72">{point}</p>
                   </div>
                 </Reveal>
@@ -41,8 +41,8 @@ export function StorySection() {
             </div>
           </div>
 
-          <Reveal className="relative min-h-[36rem] lg:min-h-[44rem]">
-            <div className="absolute inset-0 overflow-hidden rounded-[2.2rem] shadow-soft">
+          <Reveal className="relative min-h-[31rem] sm:min-h-[36rem] lg:min-h-[44rem]">
+            <div className="absolute inset-x-0 top-0 h-[88%] overflow-hidden rounded-[2.2rem] shadow-soft lg:h-full">
               <img
                 src={storyPrimaryImage}
                 alt="Flames rising from an open-fire kitchen during service."
@@ -50,7 +50,7 @@ export function StorySection() {
                 loading="lazy"
               />
             </div>
-            <div className="absolute -bottom-8 left-4 w-[58%] overflow-hidden rounded-[1.8rem] border border-white/50 shadow-soft sm:left-8 lg:-left-10 lg:bottom-10">
+            <div className="absolute bottom-0 left-3 w-[54%] overflow-hidden rounded-[1.5rem] border border-white/60 bg-ivory p-1.5 shadow-soft sm:left-8 lg:-left-10 lg:bottom-8 lg:w-[48%]">
               <img
                 src={storySecondaryImage}
                 alt="An evening dining room with candles, linen and warm hospitality lighting."
