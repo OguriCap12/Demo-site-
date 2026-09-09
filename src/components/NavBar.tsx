@@ -82,14 +82,14 @@ export function NavBar({ items, onReserveClick }: NavBarProps) {
           >
             <a
               href="#top"
-              className="font-serif text-xl tracking-[0.18em] text-ivory transition hover:text-ember focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember"
+              className="font-serif text-lg tracking-[0.18em] sm:text-xl text-ivory transition hover:text-ember focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember"
               aria-label="Ember and Olive home"
               onClick={closeMenu}
             >
               EMBER &amp; OLIVE
             </a>
 
-            <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
+            <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
               {items.map((item) => {
                 const isActive = activeHref === item.href;
                 return (
@@ -110,7 +110,8 @@ export function NavBar({ items, onReserveClick }: NavBarProps) {
             </nav>
 
             <div className="hidden lg:block">
-              <ButtonLink onClick={onReserveClick} className="px-4 py-2.5 text-[0.67rem]">
+              <ButtonLink onClick={onReserveClick} className="px-4 py-2.5 text-[0.64rem]" arrow>
+
                 Reserve a Table
               </ButtonLink>
             </div>
@@ -120,7 +121,7 @@ export function NavBar({ items, onReserveClick }: NavBarProps) {
               aria-expanded={isMenuOpen}
               aria-controls="mobile-menu"
               aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-ivory/15 bg-charcoal/55 text-ivory shadow-[0_8px_30px_rgba(0,0,0,0.18)] transition hover:border-ivory/30 hover:bg-charcoal/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember lg:hidden"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full sm:h-11 sm:w-11 border border-ivory/15 bg-charcoal/55 text-ivory shadow-[0_8px_30px_rgba(0,0,0,0.18)] transition hover:border-ivory/30 hover:bg-charcoal/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember lg:hidden"
               onClick={() => setIsMenuOpen((current) => !current)}
             >
               {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
