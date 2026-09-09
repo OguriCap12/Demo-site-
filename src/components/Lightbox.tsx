@@ -75,7 +75,18 @@ export function Lightbox({ items, activeIndex, onClose, onNext, onPrev }: Lightb
           </button>
         </div>
 
-        <div\n          className="relative overflow-hidden rounded-[1.5rem] bg-[#181511]"\n          onTouchStart={(event) => setTouchStartX(event.touches[0]?.clientX ?? null)}\n          onTouchEnd={(event) => {\n            if (touchStartX === null) return;\n            const delta = (event.changedTouches[0]?.clientX ?? touchStartX) - touchStartX;\n            if (Math.abs(delta) > 50) {\n              delta < 0 ? onNext() : onPrev();\n            }\n            setTouchStartX(null);\n          }}\n        >
+        <div
+          className="relative overflow-hidden rounded-[1.5rem] bg-[#181511]"
+          onTouchStart={(event) => setTouchStartX(event.touches[0]?.clientX ?? null)}
+          onTouchEnd={(event) => {
+            if (touchStartX === null) return;
+            const delta = (event.changedTouches[0]?.clientX ?? touchStartX) - touchStartX;
+            if (Math.abs(delta) > 50) {
+              delta < 0 ? onNext() : onPrev();
+            }
+            setTouchStartX(null);
+          }}
+        >
           <img
             src={activeItem.image}
             alt={activeItem.alt}
