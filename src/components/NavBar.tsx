@@ -14,6 +14,7 @@ type NavBarProps = {
 export function NavBar({ items, onReserveClick }: NavBarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeHref, setActiveHref] = useState('#top');
 
   useBodyScrollLock(isMenuOpen);
 
@@ -25,10 +26,47 @@ export function NavBar({ items, onReserveClick }: NavBarProps) {
   }, []);
 
   useEffect(() => {
+    const sections = ['#top', ...items.map((item) => item.href)]
+      .map((href) => document.querySelector(href))
+      .filter((section): section is Element => Boolean(section));
+
+    if (!sections.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        if (visible[0]?.target.id) {
+          setActiveHref(`#${visible[0].target.id}`);
+        }
+      },
+      { rootMargin: '-28% 0px -58% 0px', threshold: [0.05, 0.2, 0.5] },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, [items]);
+
+  useEffect(() => {
     const closeMenu = () => setIsMenuOpen(false);
     window.addEventListener('resize', closeMenu);
     return () => window.removeEventListener('resize', closeMenu);
   }, []);
+
+  useEffect(() => {
+    if (!isMenuOpen) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setIsMenuOpen(false);
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [isMenuOpen]);
+
+  const closeMenu = () => setIsMenuOpen(false);
 
   return (
     <>
@@ -46,20 +84,29 @@ export function NavBar({ items, onReserveClick }: NavBarProps) {
               href="#top"
               className="font-serif text-xl tracking-[0.18em] text-ivory transition hover:text-ember focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember"
               aria-label="Ember and Olive home"
+              onClick={closeMenu}
             >
               EMBER &amp; OLIVE
             </a>
 
             <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
-              {items.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className="relative text-xs font-semibold uppercase tracking-editorial text-ivory/76 transition hover:text-ivory after:absolute after:-bottom-2 after:left-0 after:h-px after:w-0 after:bg-ember after:transition-all hover:after:w-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember"
-                >
-                  {item.label}
-                </a>
-              ))}
+              {items.map((item) => {
+                const isActive = activeHref === item.href;
+                return (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    aria-current={isActive ? 'location' : undefined}
+                    className={[
+                      'relative text-xs font-semibold uppercase tracking-editorial transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember',
+                      isActive ? 'text-ivory after:w-full' : 'text-ivory/76 after:w-0 hover:text-ivory hover:after:w-full',
+                      'after:absolute after:-bottom-2 after:left-0 after:h-px after:bg-ember after:transition-all',
+                    ].join(' ')}
+                  >
+                    {item.label}
+                  </a>
+                );
+              })}
             </nav>
 
             <div className="hidden lg:block">
@@ -95,7 +142,8 @@ export function NavBar({ items, onReserveClick }: NavBarProps) {
             'absolute inset-0 bg-charcoal/70 backdrop-blur-sm transition-opacity duration-300',
             isMenuOpen ? 'opacity-100' : 'opacity-0',
           ].join(' ')}
-          onClick={() => setIsMenuOpen(false)}
+          onClick={closeMenu}
+          aria-hidden="true"
         />
         <div
           className={[
@@ -104,24 +152,32 @@ export function NavBar({ items, onReserveClick }: NavBarProps) {
           ].join(' ')}
         >
           <div className="space-y-1" role="menu" aria-label="Mobile navigation">
-            {items.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                role="menuitem"
-                className="flex items-center justify-between border-b border-ivory/8 py-4 text-sm font-semibold uppercase tracking-editorial text-ivory/85"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <span>{item.label}</span>
-                <span className="text-ember">/</span>
-              </a>
-            ))}
+            {items.map((item) => {
+              const isActive = activeHref === item.href;
+              return (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  role="menuitem"
+                  tabIndex={isMenuOpen ? 0 : -1}
+                  aria-current={isActive ? 'location' : undefined}
+                  className={[
+                    'flex items-center justify-between border-b border-ivory/8 py-4 text-sm font-semibold uppercase tracking-editorial transition',
+                    isActive ? 'text-ivory' : 'text-ivory/85',
+                  ].join(' ')}
+                  onClick={closeMenu}
+                >
+                  <span>{item.label}</span>
+                  <span className={isActive ? 'text-ember' : 'text-ivory/30'}>/</span>
+                </a>
+              );
+            })}
           </div>
 
           <div className="mt-8 space-y-3">
             <ButtonLink
               onClick={() => {
-                setIsMenuOpen(false);
+                closeMenu();
                 onReserveClick();
               }}
               className="w-full justify-center"
