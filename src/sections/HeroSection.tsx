@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowUpRight } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, Flame, Leaf, Sparkles } from 'lucide-react';
 
 import { heroImageSrc } from '../data/siteContent';
 import { ButtonLink } from '../components/ButtonLink';
@@ -17,8 +17,8 @@ export function HeroSection({ onReserveClick }: HeroSectionProps) {
         className="absolute inset-0 h-full w-full object-cover object-center"
         loading="eager"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#16130f]/78 via-[#16130f]/32 to-[#16130f]/42" />
-      <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/10 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#16130f]/88 via-[#16130f]/42 to-[#16130f]/52" />
+      <div className="absolute inset-0 bg-gradient-to-t from-charcoal/95 via-charcoal/12 to-transparent" />
 
       <Container className="relative flex min-h-screen items-end pb-16 pt-32 sm:pb-24 lg:pb-28">
         <div className="w-full max-w-4xl border-l border-ember/55 pl-5 sm:pl-7">
@@ -51,19 +51,22 @@ export function HeroSection({ onReserveClick }: HeroSectionProps) {
             </ButtonLink>
           </div>
 
-          <div className="motion-safe:animate-fade-up mt-10 grid max-w-2xl grid-cols-3 border-t border-ivory/15 pt-4 sm:mt-12 sm:pt-5">
-            <div className="pr-3">
-              <p className="font-serif text-xl text-ivory sm:text-2xl">Live fire</p>
-              <p className="mt-1 text-[0.62rem] font-semibold uppercase tracking-editorial text-ivory/48">Kitchen</p>
-            </div>
-            <div className="border-l border-ivory/15 px-3 sm:px-5">
-              <p className="font-serif text-xl text-ivory sm:text-2xl">Seasonal</p>
-              <p className="mt-1 text-[0.62rem] font-semibold uppercase tracking-editorial text-ivory/48">Produce</p>
-            </div>
-            <div className="border-l border-ivory/15 pl-3 sm:pl-5">
-              <p className="font-serif text-xl text-ivory sm:text-2xl">12A</p>
-              <p className="mt-1 text-[0.62rem] font-semibold uppercase tracking-editorial text-ivory/48">Defence Colony</p>
-            </div>
+          <div className="motion-safe:animate-fade-up mt-10 grid max-w-3xl grid-cols-1 gap-2 sm:mt-12 sm:grid-cols-3 sm:gap-3">
+            {[
+              { icon: Flame, value: 'Live fire', label: 'Kitchen' },
+              { icon: Leaf, value: 'Seasonal', label: 'Produce' },
+              { icon: Sparkles, value: '12A', label: 'Defence Colony' },
+            ].map(({ icon: Icon, value, label }) => (
+              <div key={label} className="flex items-center gap-3 border-t border-ivory/15 py-3 sm:border-t-0 sm:border-l sm:px-4 sm:py-1 first:sm:border-l-0 first:sm:pl-0">
+                <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-ember/30 bg-ember/10 text-ember">
+                  <Icon className="h-4 w-4" aria-hidden="true" />
+                </span>
+                <div>
+                  <p className="font-serif text-lg leading-none text-ivory sm:text-xl">{value}</p>
+                  <p className="mt-1 text-[0.58rem] font-semibold uppercase tracking-editorial text-ivory/48">{label}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
