@@ -21,21 +21,24 @@ export function HeroSection({ onReserveClick }: HeroSectionProps) {
       <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/15 to-transparent" />
 
       <Container className="relative flex min-h-screen items-end pb-20 pt-32 sm:pb-24 lg:pb-28">
-        <div className="max-w-3xl border-l border-ember/55 pl-5 sm:pl-7">
-          <p className="motion-safe:animate-fade-up text-xs font-semibold uppercase tracking-editorial text-ember">
-            Defence Colony, New Delhi
-          </p>
-          <h1 className="motion-safe:animate-fade-up mt-5 font-serif text-[3.5rem] leading-[0.92] text-ivory sm:text-[5.3rem] lg:text-[7rem]">
+        <div className="max-w-4xl border-l border-ember/55 pl-5 sm:pl-7">
+          <div className="motion-safe:animate-fade-up flex flex-wrap items-center gap-x-4 gap-y-2 text-[0.68rem] font-semibold uppercase tracking-editorial text-ivory/72">
+            <span className="text-ember">Defence Colony, New Delhi</span>
+            <span className="hidden h-1 w-1 rounded-full bg-ivory/35 sm:block" aria-hidden="true" />
+            <span>Open daily · 12 PM – late</span>
+          </div>
+          <h1 className="motion-safe:animate-fade-up mt-5 max-w-4xl font-serif text-[3.5rem] leading-[0.86] tracking-[-0.025em] text-ivory sm:text-[5.3rem] lg:text-[7rem]">
             EMBER &amp; OLIVE
           </h1>
-          <div className="motion-safe:animate-fade-up mt-5 space-y-2 text-sm font-semibold uppercase tracking-editorial text-ivory/84 sm:text-base">
-            <p>Modern Mediterranean</p>
-            <p>Open-Fire Dining</p>
+          <div className="motion-safe:animate-fade-up mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm font-semibold uppercase tracking-editorial text-ivory/84 sm:text-base">
+            <span>Modern Mediterranean</span>
+            <span className="h-1 w-1 rounded-full bg-ember" aria-hidden="true" />
+            <span>Open-Fire Dining</span>
           </div>
-          <p className="motion-safe:animate-fade-up mt-8 max-w-xl text-base leading-7 text-ivory/78 sm:text-lg sm:leading-8">
+          <p className="motion-safe:animate-fade-up mt-7 max-w-2xl text-base leading-7 text-ivory/78 sm:text-lg sm:leading-8">
             Seasonal ingredients, live-fire cooking and the spirit of the Mediterranean — served in the heart of New Delhi.
           </p>
-          <div className="motion-safe:animate-fade-up mt-10 flex flex-col gap-4 sm:flex-row">
+          <div className="motion-safe:animate-fade-up mt-9 flex flex-col gap-3 sm:flex-row sm:gap-4">
             <ButtonLink href="#menu" arrow>
               Explore the Menu
             </ButtonLink>
