@@ -29,20 +29,20 @@ export function SignatureDishesSection() {
           </Reveal>
         </div>
 
-        <div className="mt-14 grid gap-5 md:grid-cols-12 md:auto-rows-[18rem] lg:gap-7">
+        <div className="mt-14 grid auto-rows-[24rem] gap-5 sm:auto-rows-[28rem] md:grid-cols-12 md:auto-rows-[18rem] lg:gap-7">
           {signatureDishes.map((dish, index) => (
             <Reveal key={dish.name} className={layoutClasses[index]} delay={index * 80}>
-              <article className="group relative h-full overflow-hidden rounded-[2rem] border border-ivory/10 bg-[#211d19]">
+              <article className="group relative h-full min-h-0 overflow-hidden rounded-[2rem] border border-ivory/10 bg-[#211d19]">
                 <img
                   src={dish.image}
                   alt={dish.alt}
                   className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.04]"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
                   <div className="flex items-end justify-between gap-4">
-                    <div>
+                    <div className="min-w-0">
                       <h3 className="font-serif text-3xl leading-none text-ivory sm:text-[2.2rem]">{dish.name}</h3>
                       <p className="mt-3 max-w-md text-sm leading-6 text-ivory/74">{dish.description}</p>
                     </div>
