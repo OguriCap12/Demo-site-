@@ -44,7 +44,7 @@ export function GallerySection() {
               <button
                 type="button"
                 onClick={() => setActiveIndex(index)}
-                className="group relative h-full w-full overflow-hidden rounded-[1.8rem] border border-ivory/10 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal"
+                className="group relative h-full w-full overflow-hidden rounded-[1.8rem] border border-ivory/10 text-left transition duration-500 hover:-translate-y-0.5 hover:border-ivory/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal"
                 aria-label={`Open ${item.title} image in lightbox`}
               >
                 <img
@@ -55,7 +55,7 @@ export function GallerySection() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-5">
-                  <p className="text-xs font-semibold uppercase tracking-editorial text-ember">View</p>
+                  <div className="flex items-center justify-between gap-4"><p className="text-xs font-semibold uppercase tracking-editorial text-ember">View image</p><span className="text-xs font-semibold uppercase tracking-editorial text-ivory/55">{String(index + 1).padStart(2, "0")} / {String(galleryItems.length).padStart(2, "0")}</span></div>
                   <h3 className="mt-2 font-serif text-2xl text-ivory">{item.title}</h3>
                 </div>
               </button>
