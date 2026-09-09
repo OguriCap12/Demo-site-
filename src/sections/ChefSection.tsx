@@ -43,22 +43,24 @@ export function ChefSection() {
             </div>
           </Reveal>
           <Reveal className="order-1 lg:order-2">
-            <div className="relative overflow-hidden rounded-[1.8rem] border border-charcoal/10 bg-[#d8cebd] p-2.5 shadow-soft sm:p-3">
+            <div className="relative overflow-hidden rounded-[1.35rem] border border-charcoal/10 bg-[#d8cebd] p-1.5 shadow-soft sm:rounded-[1.8rem] sm:p-3">
               <img
                 src={chefPortraitSrc}
                 alt="A fictional chef standing near a live-fire kitchen in warm light."
-                className="h-[27rem] w-full rounded-[1.35rem] object-cover transition duration-700 hover:scale-[1.02] sm:h-[34rem] lg:h-[42rem]"
+                className="h-[31rem] w-full rounded-[1rem] object-cover object-center transition duration-700 hover:scale-[1.02] sm:h-[34rem] sm:rounded-[1.35rem] lg:h-[42rem]"
                 loading="lazy"
               />
-              <div className="absolute left-6 top-6 rounded-full border border-white/45 bg-charcoal/72 px-4 py-2 text-[0.62rem] font-semibold uppercase tracking-editorial text-ivory backdrop-blur-sm">
+              <div className="absolute left-5 top-5 rounded-full border border-white/35 bg-charcoal/75 px-4 py-2 sm:left-6 sm:top-6 text-[0.62rem] font-semibold uppercase tracking-editorial text-ivory backdrop-blur-md">
                 Live Fire / Delhi
               </div>
-              <div className="absolute bottom-6 left-6 right-6 rounded-[1.1rem] border border-white/55 bg-white/78 p-4 backdrop-blur-sm">
+              <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-charcoal/90 via-charcoal/45 to-transparent pointer-events-none" aria-hidden="true" />
+              <div className="absolute bottom-5 left-5 right-5 rounded-[1rem] border border-ivory/20 bg-charcoal/72 p-4 text-ivory shadow-[0_18px_50px_rgba(0,0,0,0.22)] backdrop-blur-md sm:bottom-6 sm:left-6 sm:right-6 sm:p-5">
                 <div className="flex items-center justify-between gap-4">
                   <p className="text-[0.62rem] font-semibold uppercase tracking-editorial text-ember">Kitchen Notes</p>
-                  <span className="text-[0.58rem] font-semibold uppercase tracking-editorial text-charcoal/45">01 / 03</span>
+                  <span className="text-[0.58rem] font-semibold uppercase tracking-editorial text-ivory/45">01 / 03</span>
                 </div>
-                <p className="mt-2 text-sm leading-6 text-charcoal/68">Technique stays quiet; the ingredient stays in focus.</p>
+                <p className="mt-2 text-sm leading-6 text-ivory/82 sm:text-base">Technique stays quiet; the ingredient stays in focus.</p>
+              </div>               <p className="mt-2 text-sm leading-6 text-charcoal/68">Technique stays quiet; the ingredient stays in focus.</p>
               </div>
             </div>
           </Reveal>
