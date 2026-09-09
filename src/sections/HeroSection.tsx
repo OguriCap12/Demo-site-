@@ -10,25 +10,26 @@ type HeroSectionProps = {
 
 export function HeroSection({ onReserveClick }: HeroSectionProps) {
   return (
-    <section id="top" className="relative min-h-screen overflow-hidden bg-charcoal text-ivory">
+    <section id="top" className="relative min-h-[100svh] overflow-hidden bg-charcoal text-ivory">
       <img
         src={heroImageSrc}
         alt="A cinematic Mediterranean dining room with plated dishes and the warm glow of an open-fire kitchen."
-        className="absolute inset-0 h-full w-full object-cover object-center"
+        className="absolute inset-0 h-full w-full scale-[1.015] object-cover object-center transition-transform duration-[2000ms] motion-safe:animate-[heroZoom_12s_ease-out_both]"
         loading="eager"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-[#16130f]/88 via-[#16130f]/42 to-[#16130f]/52" />
-      <div className="absolute inset-0 bg-gradient-to-t from-charcoal/95 via-charcoal/12 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-charcoal/95 via-charcoal/18 to-transparent" />
+      <div className="absolute inset-y-0 right-0 hidden w-[38%] bg-gradient-to-l from-charcoal/35 to-transparent lg:block" />
 
-      <Container className="relative flex min-h-screen items-end pb-16 pt-32 sm:pb-24 lg:pb-28">
-        <div className="w-full max-w-4xl border-l border-ember/55 pl-5 sm:pl-7">
+      <Container className="relative flex min-h-[100svh] items-end pb-14 pt-28 sm:pb-20 lg:pb-24">
+        <div className="w-full max-w-5xl border-l border-ember/55 pl-5 sm:pl-7 lg:pl-8">
           <div className="motion-safe:animate-fade-up flex flex-wrap items-center gap-x-4 gap-y-2 text-[0.68rem] font-semibold uppercase tracking-editorial text-ivory/72">
             <span className="text-ember">Defence Colony, New Delhi</span>
             <span className="hidden h-1 w-1 rounded-full bg-ivory/35 sm:block" aria-hidden="true" />
             <span>Open daily · 12 PM – late</span>
           </div>
 
-          <h1 className="motion-safe:animate-fade-up mt-5 max-w-4xl font-serif text-[3.35rem] leading-[0.86] tracking-[-0.025em] text-ivory sm:text-[5.3rem] lg:text-[7rem]">
+          <h1 className="motion-safe:animate-fade-up mt-5 max-w-4xl font-serif text-[3.25rem] leading-[0.84] tracking-[-0.035em] text-ivory sm:text-[5.5rem] lg:text-[7.6rem]">
             EMBER &amp; OLIVE
           </h1>
 
@@ -38,7 +39,7 @@ export function HeroSection({ onReserveClick }: HeroSectionProps) {
             <span>Open-Fire Dining</span>
           </div>
 
-          <p className="motion-safe:animate-fade-up mt-7 max-w-2xl text-base leading-7 text-ivory/78 sm:text-lg sm:leading-8">
+          <p className="motion-safe:animate-fade-up mt-6 max-w-2xl text-base leading-7 text-ivory/78 sm:text-lg sm:leading-8">
             Seasonal ingredients, live-fire cooking and the spirit of the Mediterranean — served in the heart of New Delhi.
           </p>
 
@@ -51,7 +52,7 @@ export function HeroSection({ onReserveClick }: HeroSectionProps) {
             </ButtonLink>
           </div>
 
-          <div className="motion-safe:animate-fade-up mt-10 grid max-w-3xl grid-cols-1 gap-2 sm:mt-12 sm:grid-cols-3 sm:gap-3">
+          <div className="motion-safe:animate-fade-up mt-8 grid max-w-3xl sm:mt-10 grid-cols-1 gap-2 sm:mt-12 sm:grid-cols-3 sm:gap-3">
             {[
               { icon: Flame, value: 'Live fire', label: 'Kitchen' },
               { icon: Leaf, value: 'Seasonal', label: 'Produce' },
