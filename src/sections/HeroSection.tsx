@@ -52,7 +52,7 @@ export function HeroSection({ onReserveClick }: HeroSectionProps) {
             </ButtonLink>
           </div>
 
-          <div className="motion-safe:animate-fade-up mt-8 grid max-w-3xl sm:mt-10 grid-cols-1 gap-2 sm:mt-12 sm:grid-cols-3 sm:gap-3">
+          <div className="motion-safe:animate-fade-up mt-8 grid max-w-3xl grid-cols-1 gap-2 sm:mt-12 sm:grid-cols-3 sm:gap-3">
             {[
               { icon: Flame, value: 'Live fire', label: 'Kitchen' },
               { icon: Leaf, value: 'Seasonal', label: 'Produce' },
