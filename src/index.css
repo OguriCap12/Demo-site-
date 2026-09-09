@@ -19,7 +19,7 @@ html {
   width: 100%;
   min-width: 0;
   max-width: 100%;
-  overflow-x: clip;
+  overflow-x: hidden;
 }
 
 :focus-visible {
@@ -37,7 +37,7 @@ body {
   width: 100%;
   min-width: 0;
   max-width: 100%;
-  overflow-x: clip;
+  overflow-x: hidden;
   background: #171512;
   color: #f5efe4;
 }
@@ -46,11 +46,12 @@ body {
   width: 100%;
   min-width: 0;
   max-width: 100%;
-  overflow-x: clip;
+  overflow-x: hidden;
 }
 
 section {
   position: relative;
+  width: 100%;
   min-width: 0;
   max-width: 100%;
 }
@@ -151,6 +152,12 @@ p {
 
   .reveal-element {
     width: 100%;
+    min-width: 0;
+  }
+
+  .reveal-element,
+  .reveal-element > * {
+    max-width: 100%;
     min-width: 0;
   }
 }
