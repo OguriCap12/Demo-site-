@@ -15,11 +15,16 @@ export function NavBar({ items, onReserveClick }: NavBarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeHref, setActiveHref] = useState('#top');
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useBodyScrollLock(isMenuOpen);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 24);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 24);
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      setScrollProgress(max > 0 ? Math.min(100, (window.scrollY / max) * 100) : 0);
+    };
     handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
@@ -82,7 +87,7 @@ export function NavBar({ items, onReserveClick }: NavBarProps) {
           >
             <a
               href="#top"
-              className="font-serif text-lg tracking-[0.18em] sm:text-xl text-ivory transition hover:text-ember focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember"
+              className="font-serif text-lg tracking-[0.18em] text-ivory sm:text-xl transition hover:text-ember focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember"
               aria-label="Ember and Olive home"
               onClick={closeMenu}
             >
@@ -129,6 +134,9 @@ export function NavBar({ items, onReserveClick }: NavBarProps) {
           </div>
         </Container>
       </header>
+      <div className="fixed left-0 right-0 top-0 z-50 h-px bg-transparent" aria-hidden="true">
+        <div className="h-full bg-ember transition-[width] duration-150" style={{ width: `${scrollProgress}%` }} />
+      </div>
 
       <div
         id="mobile-menu"
