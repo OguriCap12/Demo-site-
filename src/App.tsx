@@ -30,7 +30,7 @@ export default function App() {
 
       <NavBar items={navItems} onReserveClick={() => setIsReservationOpen(true)} />
 
-      <main id="main-content">
+      <main id="main-content" className="pb-24 md:pb-0">
         <HeroSection onReserveClick={() => setIsReservationOpen(true)} />
         <IntroductionSection />
         <SignatureDishesSection />
@@ -45,6 +45,23 @@ export default function App() {
       </main>
 
       <Footer onReserveClick={() => setIsReservationOpen(true)} />
+      <div className="fixed inset-x-4 bottom-4 z-40 md:hidden">
+        <div className="grid grid-cols-2 gap-2 rounded-full border border-ivory/12 bg-[#15130f]/90 p-1.5 shadow-soft backdrop-blur-xl">
+          <a
+            href="#menu"
+            className="inline-flex min-h-11 items-center justify-center rounded-full px-4 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-ivory/80 transition hover:bg-ivory/8 hover:text-ivory focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember"
+          >
+            View Menu
+          </a>
+          <button
+            type="button"
+            onClick={() => setIsReservationOpen(true)}
+            className="inline-flex min-h-11 items-center justify-center rounded-full bg-ember px-4 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-ivory transition hover:bg-[#a85a37] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember"
+          >
+            Reserve
+          </button>
+        </div>
+      </div>
       <ReservationModal isOpen={isReservationOpen} onClose={() => setIsReservationOpen(false)} />
     </div>
   );
