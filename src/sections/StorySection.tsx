@@ -16,7 +16,7 @@ export function StorySection() {
         <div className="grid gap-16 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-20">
           <div>
             <Reveal>
-              <p className="text-xs font-semibold uppercase tracking-editorial text-ember">Restaurant Story</p>
+              <div className="flex items-center gap-3"><p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-ember">Restaurant Story</p><span className="h-px w-10 bg-ember/45" aria-hidden="true" /></div>
             </Reveal>
             <Reveal delay={100}>
               <h2 className="mt-4 max-w-3xl font-serif text-[3.35rem] leading-[0.86] tracking-[-0.035em] sm:text-6xl lg:text-[5.6rem]">
@@ -42,15 +42,15 @@ export function StorySection() {
           </div>
 
           <Reveal className="relative min-h-[31rem] sm:min-h-[36rem] lg:min-h-[44rem]">
-            <div className="absolute inset-x-0 top-0 h-[88%] overflow-hidden rounded-[2.2rem] shadow-soft lg:h-full">
+            <div className="absolute inset-x-0 top-0 h-[88%] overflow-hidden rounded-[1.6rem] border border-charcoal/10 shadow-soft lg:h-full lg:rounded-[2rem]">
               <img
                 src={storyPrimaryImage}
                 alt="Flames rising from an open-fire kitchen during service."
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover transition duration-1000 hover:scale-[1.02]"
                 loading="lazy"
               />
             </div>
-            <div className="absolute bottom-0 left-3 w-[54%] overflow-hidden rounded-[1.5rem] border border-white/60 bg-ivory p-1.5 shadow-soft sm:left-8 lg:-left-10 lg:bottom-8 lg:w-[48%]">
+            <div className="absolute bottom-0 left-3 w-[54%] overflow-hidden rounded-[1.25rem] border border-white/60 bg-ivory p-1.5 shadow-soft sm:left-8 lg:-left-10 lg:bottom-8 lg:w-[48%]">
               <img
                 src={storySecondaryImage}
                 alt="An evening dining room with candles, linen and warm hospitality lighting."
