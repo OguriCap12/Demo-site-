@@ -37,7 +37,7 @@ export function MenuSection({ onReserveClick }: MenuSectionProps) {
 
           <div>
             <Reveal delay={80}>
-              <div className="flex gap-2 overflow-x-auto rounded-[1.7rem] border border-charcoal/10 bg-white/50 p-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+              <div className="grid grid-cols-2 gap-2 rounded-[1.7rem] border border-charcoal/10 bg-white/50 p-2 sm:flex sm:overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
                 {menuCategories.map((category) => {
                   const isActive = category.id === activeCategory.id;
                   return (
@@ -45,8 +45,8 @@ export function MenuSection({ onReserveClick }: MenuSectionProps) {
                       key={category.id}
                       type="button"
                       className={[
-                        'shrink-0 rounded-full px-4 py-3 text-xs font-semibold uppercase tracking-editorial transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember focus-visible:ring-offset-2 focus-visible:ring-offset-ivory',
-                        isActive ? 'bg-charcoal text-ivory' : 'bg-transparent text-charcoal/72 hover:bg-charcoal/6',
+                        'min-w-0 rounded-full px-3 py-3 text-[0.68rem] font-semibold uppercase tracking-editorial transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember focus-visible:ring-offset-2 focus-visible:ring-offset-ivory',
+                        isActive ? 'bg-charcoal text-ivory shadow-[0_8px_24px_rgba(23,21,18,0.16)]' : 'bg-transparent text-charcoal/72 hover:bg-charcoal/6',
                       ].join(' ')}
                       onClick={() => setActiveCategoryId(category.id)}
                       aria-pressed={isActive}
