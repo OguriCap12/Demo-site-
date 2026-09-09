@@ -15,6 +15,8 @@
 html {
   scroll-behavior: smooth;
   background: #171512;
+  width: 100%;
+  min-width: 0;
 }
 
 :focus-visible {
@@ -29,14 +31,22 @@ html {
 
 body {
   margin: 0;
-  min-width: 320px;
+  width: 100%;
+  min-width: 0;
   background: #171512;
   color: #f5efe4;
-  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
 }
 
 section {
   position: relative;
+  min-width: 0;
+  max-width: 100%;
 }
 
 section + section {
@@ -64,6 +74,7 @@ a {
 
 img {
   display: block;
+  max-width: 100%;
 }
 
 * {
@@ -79,14 +90,19 @@ h1,
 h2,
 h3,
 h4 {
+  max-width: 100%;
   text-wrap: balance;
 }
 
 p {
+  max-width: 100%;
   text-wrap: pretty;
 }
 
 .reveal-element {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
   opacity: 0;
   transform: translateY(22px);
   transition:
@@ -97,6 +113,17 @@ p {
 .reveal-element.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (max-width: 639px) {
+  h1,
+  h2,
+  h3,
+  h4,
+  p {
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
