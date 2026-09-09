@@ -126,8 +126,8 @@ export function ReservationModal({ isOpen, onClose }: ReservationModalProps) {
       >
         <div className="sticky top-0 flex items-start justify-between border-b border-ivory/8 bg-[#1d1a16]/95 px-5 py-5 backdrop-blur sm:px-8">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-editorial text-ember">Reservation Experience</p>
-            <h3 id={titleId} className="mt-2 font-serif text-3xl text-ivory sm:text-4xl">
+            <div className="flex items-center gap-3"><p className="text-xs font-semibold uppercase tracking-editorial text-ember">Reservation Experience</p><span className="h-px w-10 bg-ember/45" aria-hidden="true" /></div>
+            <h3 id={titleId} className="mt-2 font-serif text-3xl leading-[0.95] text-ivory sm:text-4xl">
               Reserve a Table
             </h3>
             <p id={descriptionId} className="mt-2 max-w-xl text-sm leading-6 text-ivory/68">
@@ -258,7 +258,7 @@ export function ReservationModal({ isOpen, onClose }: ReservationModalProps) {
 
             <button
               type="submit"
-              className="inline-flex w-full items-center justify-center rounded-full border border-ember bg-ember px-5 py-3 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-ivory transition hover:border-[#a85a37] hover:bg-[#a85a37] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember focus-visible:ring-offset-2 focus-visible:ring-offset-[#1d1a16]"
+              className="inline-flex min-h-12 w-full items-center justify-center rounded-full border border-ember bg-ember px-5 py-3 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-ivory transition hover:border-[#a85a37] hover:bg-[#a85a37] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember focus-visible:ring-offset-2 focus-visible:ring-offset-[#1d1a16]"
             >
               Check Availability
             </button>
@@ -267,7 +267,7 @@ export function ReservationModal({ isOpen, onClose }: ReservationModalProps) {
             </p>
           </form>
 
-          <div className="space-y-5 rounded-[1.6rem] border border-ivory/10 bg-charcoal/45 p-5 sm:p-6">
+          <div className="space-y-5 rounded-[1.6rem] border border-ivory/10 bg-charcoal/45 p-5 shadow-inner sm:p-6">
             <div>
               <p className="text-xs font-semibold uppercase tracking-editorial text-olive">Dining Notes</p>
               <ul className="mt-4 space-y-3 text-sm leading-7 text-ivory/74">
