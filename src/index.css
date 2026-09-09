@@ -202,14 +202,3 @@ p {
     transform: none;
   }
 }
-
-
-@keyframes heroZoom {
-  from { transform: scale(1.015); }
-  to { transform: scale(1.06); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  * { scroll-behavior: auto !important; }
-  .motion-safe\\:animate-\\[heroZoom_12s_ease-out_both\\] { animation: none !important; }
-}
