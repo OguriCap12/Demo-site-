@@ -18,11 +18,11 @@ export function TestimonialsSection() {
           </div>
         </Reveal>
 
-        <div className="mt-14 grid gap-6 lg:grid-cols-3">
+        <div className="mt-14 grid gap-0 border-y border-ivory/10 lg:grid-cols-3">
           {testimonials.map((testimonial, index) => (
             <Reveal key={testimonial.name} delay={index * 80}>
-              <blockquote className="flex h-full flex-col justify-between rounded-[1.8rem] border border-ivory/10 bg-ivory/[0.03] p-6 sm:p-7">
-                <p className="font-serif text-3xl leading-tight text-ivory">“{testimonial.quote}”</p>
+              <blockquote className="flex h-full flex-col justify-between border-b border-ivory/10 bg-ivory/[0.025] p-6 sm:p-8 lg:border-b-0 lg:border-l first:lg:border-l-0 lg:px-8 first:lg:pl-0 last:lg:pr-0">
+                <p className="font-serif text-[1.65rem] leading-tight text-ivory sm:text-3xl">“{testimonial.quote}”</p>
                 <footer className="mt-8 border-t border-ivory/10 pt-5 text-xs font-semibold uppercase tracking-editorial text-olive">
                   — {testimonial.name}
                 </footer>
