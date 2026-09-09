@@ -17,6 +17,8 @@ html {
   background: #171512;
   width: 100%;
   min-width: 0;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 :focus-visible {
@@ -33,6 +35,8 @@ body {
   margin: 0;
   width: 100%;
   min-width: 0;
+  max-width: 100%;
+  overflow-x: clip;
   background: #171512;
   color: #f5efe4;
 }
@@ -41,6 +45,7 @@ body {
   width: 100%;
   min-width: 0;
   max-width: 100%;
+  overflow-x: clip;
 }
 
 section {
@@ -81,11 +86,6 @@ img {
   box-sizing: border-box;
 }
 
-::selection {
-  background: rgba(191, 107, 69, 0.32);
-  color: #f5efe4;
-}
-
 h1,
 h2,
 h3,
@@ -123,6 +123,11 @@ p {
   p {
     overflow-wrap: anywhere;
     word-break: normal;
+  }
+
+  .reveal-element {
+    width: 100%;
+    min-width: 0;
   }
 }
 
