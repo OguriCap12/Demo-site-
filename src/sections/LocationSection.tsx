@@ -15,10 +15,10 @@ export function LocationSection({ onReserveClick }: LocationSectionProps) {
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-16">
           <div>
             <Reveal>
-              <p className="text-xs font-semibold uppercase tracking-editorial text-ember">Location</p>
+              <div className="flex items-center gap-3"><p className="text-xs font-semibold uppercase tracking-editorial text-ember">Location / Visit</p><span className="h-px w-10 bg-ember/45" aria-hidden="true" /></div>
               <h2 className="mt-4 font-serif text-5xl leading-[0.94] sm:text-6xl">Defence Colony, New Delhi</h2>
               <p className="mt-7 max-w-xl text-base leading-8 text-charcoal/74 sm:text-lg">
-                Positioned as an intimate destination in the market, the concept blends neighbourhood ease with destination-dining polish.
+                An intimate neighbourhood address designed to feel equally natural for a long lunch, a late dinner or a table worth lingering over.
               </p>
             </Reveal>
 
@@ -31,7 +31,7 @@ export function LocationSection({ onReserveClick }: LocationSectionProps) {
                     <br />
                     New Delhi 110024
                   </p>
-                  <p className="mt-3 text-sm leading-7 text-charcoal/58">Fictional demo address for portfolio presentation.</p>
+                  <p className="mt-3 text-sm leading-7 text-charcoal/58">Fictional address · portfolio concept</p>
                 </div>
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-editorial text-charcoal/42">Hours</p>
@@ -50,10 +50,16 @@ export function LocationSection({ onReserveClick }: LocationSectionProps) {
             </Reveal>
 
             <Reveal delay={180}>
-              <div className="mt-8">
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
                 <ButtonLink onClick={onReserveClick} className="focus-visible:ring-offset-ivory">
                   Reserve a Table
                 </ButtonLink>
+                <a
+                  href="#location"
+                  className="inline-flex min-h-12 items-center justify-center rounded-full border border-charcoal/15 px-5 text-xs font-semibold uppercase tracking-editorial transition hover:border-charcoal/35 hover:bg-charcoal/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember focus-visible:ring-offset-2 focus-visible:ring-offset-ivory"
+                >
+                  Get Directions
+                </a>
               </div>
             </Reveal>
           </div>
@@ -80,7 +86,7 @@ export function LocationSection({ onReserveClick }: LocationSectionProps) {
                 </div>
                 <div className="mt-5 rounded-[1.4rem] border border-charcoal/10 bg-white/72 px-5 py-4 text-center backdrop-blur-sm">
                   <p className="text-xs font-semibold uppercase tracking-editorial text-ember">Ember &amp; Olive</p>
-                  <p className="mt-2 text-sm leading-6 text-charcoal/72">A stylized location illustration for the fictional concept.</p>
+                  <p className="mt-2 text-sm leading-6 text-charcoal/72">Defence Colony Market · New Delhi</p>
                 </div>
               </div>
             </div>
