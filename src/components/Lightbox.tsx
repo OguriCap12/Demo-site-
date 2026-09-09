@@ -50,14 +50,14 @@ export function Lightbox({ items, activeIndex, onClose, onNext, onPrev }: Lightb
   const activeItem = items[activeIndex];
 
   return createPortal(
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 px-4 py-6 backdrop-blur-sm motion-safe:animate-modal-in">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/92 px-2 py-3 backdrop-blur-md sm:px-6 sm:py-6 motion-safe:animate-modal-in">
       <div className="absolute inset-0" onClick={onClose} />
       <div
         ref={panelRef}
         role="dialog"
         aria-modal="true"
         aria-label={`${activeItem.title} image preview`}
-        className="relative flex w-full max-w-6xl flex-col gap-4 rounded-[2rem] border border-white/10 bg-[#11100e] p-3 text-ivory shadow-soft motion-safe:animate-modal-in sm:p-5"
+        className="relative flex w-full max-w-6xl flex-col gap-3 rounded-[1.25rem] border border-white/10 bg-[#11100e] p-2.5 text-ivory shadow-[0_30px_100px_rgba(0,0,0,0.45)] motion-safe:animate-modal-in sm:gap-4 sm:rounded-[2rem] sm:p-5"
         tabIndex={-1}
       >
         <div className="flex items-center justify-between gap-4 px-2 pt-2">
@@ -76,7 +76,7 @@ export function Lightbox({ items, activeIndex, onClose, onNext, onPrev }: Lightb
         </div>
 
         <div
-          className="relative overflow-hidden rounded-[1.5rem] bg-[#181511]"
+          className="relative overflow-hidden rounded-[1rem] bg-[#181511] sm:rounded-[1.5rem]"
           onTouchStart={(event) => setTouchStartX(event.touches[0]?.clientX ?? null)}
           onTouchEnd={(event) => {
             if (touchStartX === null) return;
@@ -90,10 +90,10 @@ export function Lightbox({ items, activeIndex, onClose, onNext, onPrev }: Lightb
           <img
             src={activeItem.image}
             alt={activeItem.alt}
-            className="max-h-[72vh] w-full object-cover transition-opacity duration-300"
+            className="max-h-[68vh] w-full object-contain transition-opacity duration-500 sm:max-h-[72vh]"
             loading="eager"
           />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/55 to-transparent p-5">
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 sm:p-5">
             <p className="max-w-2xl text-sm text-ivory/78">{activeItem.alt}</p>
           </div>
         </div>
@@ -102,7 +102,7 @@ export function Lightbox({ items, activeIndex, onClose, onNext, onPrev }: Lightb
           <button
             type="button"
             onClick={onPrev}
-            className="inline-flex items-center gap-2 rounded-full border border-ivory/12 px-4 py-2 text-xs font-semibold uppercase tracking-editorial transition hover:border-ivory/30 hover:bg-ivory/5"
+            className="inline-flex items-center gap-2 rounded-full border border-ivory/12 px-3 py-2 text-xs font-semibold uppercase tracking-editorial transition hover:border-ivory/30 hover:bg-ivory/5 sm:px-4"
             aria-label="Previous gallery image"
           >
             <ChevronLeft className="h-4 w-4" />
