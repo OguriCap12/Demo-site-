@@ -21,8 +21,8 @@ export function MenuSection({ onReserveClick }: MenuSectionProps) {
           <Reveal>
             <SectionHeading
               eyebrow="Menu"
-              title={<>A fictional menu composed for a refined, modern Mediterranean house.</>}
-              description="Switch between courses to explore the range — from small plates and fire-cooked signatures to desserts and drinks."
+              title={<>Fire-led Mediterranean cooking, served for the table.</>}
+              description="Move through the courses to explore small plates, live-fire signatures, mains, sides, desserts and drinks."
               tone="dark"
             />
             <div className="mt-10 flex flex-col gap-4 sm:flex-row lg:flex-col lg:items-start">
@@ -30,12 +30,12 @@ export function MenuSection({ onReserveClick }: MenuSectionProps) {
                 Reserve a Table
               </ButtonLink>
               <p className="max-w-sm text-sm leading-7 text-charcoal/62">
-                All dishes, prices and timings are part of a fictional portfolio concept and are shown only to demonstrate the user experience.
+                Menus change with the season. Please ask the team about daily specials, dietary requirements and availability.
               </p>
             </div>
           </Reveal>
 
-          <div>
+          <div className="min-w-0">
             <Reveal delay={80}>
               <div className="grid grid-cols-2 gap-1.5 border-y border-charcoal/10 py-2 sm:flex sm:overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
                 {menuCategories.map((category) => {
