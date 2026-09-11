@@ -50,17 +50,16 @@ export function ChefSection() {
                 className="h-[31rem] w-full rounded-[1rem] object-cover object-center transition duration-700 hover:scale-[1.02] sm:h-[34rem] sm:rounded-[1.35rem] lg:h-[42rem]"
                 loading="lazy"
               />
-              <div className="absolute left-5 top-5 rounded-full border border-white/35 bg-charcoal/75 px-4 py-2 sm:left-6 sm:top-6 text-[0.62rem] font-semibold uppercase tracking-editorial text-ivory backdrop-blur-md">
+              <div className="absolute left-5 top-5 rounded-full border border-white/35 bg-charcoal/75 px-4 py-2 text-[0.62rem] font-semibold uppercase tracking-editorial text-ivory backdrop-blur-md sm:left-6 sm:top-6">
                 Live Fire / Delhi
               </div>
-              <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-charcoal/90 via-charcoal/45 to-transparent pointer-events-none" aria-hidden="true" />
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-charcoal/90 via-charcoal/45 to-transparent" aria-hidden="true" />
               <div className="absolute bottom-5 left-5 right-5 rounded-[1rem] border border-ivory/20 bg-charcoal/72 p-4 text-ivory shadow-[0_18px_50px_rgba(0,0,0,0.22)] backdrop-blur-md sm:bottom-6 sm:left-6 sm:right-6 sm:p-5">
                 <div className="flex items-center justify-between gap-4">
                   <p className="text-[0.62rem] font-semibold uppercase tracking-editorial text-ember">Kitchen Notes</p>
                   <span className="text-[0.58rem] font-semibold uppercase tracking-editorial text-ivory/45">01 / 03</span>
                 </div>
                 <p className="mt-2 text-sm leading-6 text-ivory/82 sm:text-base">Technique stays quiet; the ingredient stays in focus.</p>
-              </div>               <p className="mt-2 text-sm leading-6 text-charcoal/68">Technique stays quiet; the ingredient stays in focus.</p>
               </div>
             </div>
           </Reveal>
