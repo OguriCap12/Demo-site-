@@ -64,7 +64,7 @@ export default function App() {
           <a
             href="#menu"
             tabIndex={showMobileBar ? 0 : -1}
-            className="inline-flex min-h-10 items-center justify-center rounded-full px-3 text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-ivory/75 transition-colors duration-300 hover:bg-ivory/8 hover:text-ivory focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember"
+            className="inline-flex min-h-10 items-center justify-center rounded-full bg-ivory px-3 text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-charcoal transition-all duration-300 hover:bg-[#f0e7d8] hover:shadow-[0_4px_16px_rgba(0,0,0,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember focus-visible:ring-offset-2 focus-visible:ring-offset-[#15130f] active:scale-[0.98]"
           >
             View Menu
           </a>
@@ -72,7 +72,7 @@ export default function App() {
             type="button"
             tabIndex={showMobileBar ? 0 : -1}
             onClick={() => setIsReservationOpen(true)}
-            className="inline-flex min-h-10 items-center justify-center rounded-full bg-ember px-3 text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-ivory transition-all duration-300 hover:bg-[#a85a37] hover:shadow-[0_6px_20px_rgba(184,103,66,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember active:scale-[0.98]"
+            className="inline-flex min-h-10 items-center justify-center rounded-full bg-ember px-3 text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-ivory transition-all duration-300 hover:bg-[#a85a37] hover:shadow-[0_6px_20px_rgba(184,103,66,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember focus-visible:ring-offset-2 focus-visible:ring-offset-[#15130f] active:scale-[0.98]"
           >
             Reserve
           </button>
